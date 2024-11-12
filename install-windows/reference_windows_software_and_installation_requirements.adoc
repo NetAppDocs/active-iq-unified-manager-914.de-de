@@ -1,0 +1,94 @@
+---
+permalink: install-windows/reference_windows_software_and_installation_requirements.html 
+sidebar: sidebar 
+keywords: windows, software, installation, requirements, system 
+summary: Für die erfolgreiche Installation von Unified Manager unter Windows sollten Sie sicherstellen, dass das System, auf dem Unified Manager installiert wird, den Softwareanforderungen entspricht. 
+---
+= Windows Software- und Installationsanforderungen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+:pp: &#43;&#43;
+
+
+[role="lead"]
+Für die erfolgreiche Installation von Unified Manager unter Windows sollten Sie sicherstellen, dass das System, auf dem Unified Manager installiert wird, den Softwareanforderungen entspricht.
+
+
+
+== Betriebssystem-Software
+
+Sie können Unified Manager unter folgenden Windows-Editionen installieren:
+
+* Microsoft Windows Server 2019 Standard und Datacenter Edition
+* Microsoft Windows Server 2022 Standard und Datacenter Edition
+
+
+Unified Manager wird auf 64-Bit-Windows-Betriebssystem für die folgenden Sprachen unterstützt:
+
+* Englisch
+* Japanisch
+* Vereinfachtes Chinesisch
+
+
+In der Interoperabilitäts-Matrix finden Sie die vollständige und aktuelle Liste der unterstützten Windows-Versionen.
+
+http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"^]
+
+
+NOTE: NetApp unterstützt die Installation von Unified Manager mithilfe von Tools von Drittanbietern, wie z. B. Microsoft System Center Configuration Manager (SCCM), nicht.
+
+Der Server sollte dediziert sein für die Ausführung von Unified Manager. Auf dem Server sollten keine anderen Anwendungen installiert sein. Es ist möglich, dass eine aktive Anti-Virus-Software auf Ihrem Windows-System aufgrund von Firmenvorschriften installiert wird. Sie sollten die Virenschutzsoftware vor der Installation von Unified Manager deaktivieren, um einen Ausfall der Installation zu verhindern.
+
+
+
+== Software von anderen Anbietern
+
+Die folgenden Drittanbieterpakete werden mit Unified Manager gebündelt. Wenn diese Pakete von Drittanbietern nicht auf Ihrem System installiert sind, installiert Unified Manager sie als Teil der Installation.
+
+* Microsoft Visual C&#43;&#43; 2015 Redistributable Package Version 14.26.28720,3
+* Microsoft Visual C&#43;&#43; weiterverteilbare Pakete für Visual Studio 2013 Version 12.0.40660.0
+* MySQL Community Edition Version 8.0.34
+* Python 3.11.6
+* OpenJDK Version 11.0.20
+* P7zip Version 23.01 oder höher
+
+
+[NOTE]
+====
+Ab Unified Manager 9.5 wird OpenJDK im Unified Manager-Installationspaket bereitgestellt und automatisch installiert. Oracle Java wird ab Unified Manager 9.5 nicht unterstützt.
+
+====
+Wenn MySQL vorinstalliert ist, sollten Sie Folgendes sicherstellen:
+
+* Er verwendet den Standardport.
+* Die Beispieldatenbanken sind nicht installiert.
+* Der Servicename lautet "`MYSQL8`".
+
+
+Unified Manager wird auf einem WildFly Web-Server bereitgestellt. WildFly 26.1.3 ist gebündelt und mit Unified Manager konfiguriert.
+
+[NOTE]
+====
+Vor dem Upgrade von Software anderer Anbieter sollten Sie eine laufende Instanz von Unified Manager herunterfahren. Nach Abschluss der Softwareinstallation von Drittanbietern können Sie Unified Manager neu starten.
+
+====
+
+
+== Installationsvoraussetzungen
+
+* Microsoft .NET 4.5 oder höher sollte installiert sein.
+* Das `temp` Verzeichnis sollte mit 2 GB Festplattenspeicher zum Extrahieren der Installationsdateien konfiguriert werden. Um zu überprüfen, ob das Verzeichnis erstellt wurde, führen Sie den folgenden Befehl auf der Befehlszeilenschnittstelle aus: `echo %temp%`
+* Sie sollten 2 GB Festplattenspeicher im Windows-Laufwerk für das Caching der MSI-Dateien von Unified Manager reservieren.
+* Der Microsoft Windows Server, auf dem Sie Unified Manager installieren möchten, sollte mit einem vollständig qualifizierten Domänennamen (FQDN) konfiguriert werden, so dass `ping` Antworten auf den Hostnamen und den FQDN erfolgreich sind.
+* Sie sollten den weltweiten Webveröffentlichungsservice von Microsoft IIS deaktivieren und sicherstellen, dass die Ports 80 und 443 frei sind.
+* Sie sollten sicherstellen, dass die Einstellung des Host für Remote-Desktop-Sitzungen für „`Windows Installer RDS Compatibility`“ während der Installation deaktiviert ist.
+* UDP-Port 514 sollte frei sein und nicht von anderen Diensten verwendet werden.
+* Vor der Installation von Unified Manager sollten Sie alle Virenschutzsoftware auf Ihrem System deaktivieren. Stellen Sie nach Abschluss der Installation sicher, dass Sie die folgenden Pfade von Anti-Virus-Scan manuell ausschließen:
++
+** Beispielsweise das Unified Manager-Datenverzeichnis `C:\ProgramData\NetApp\OnCommandAppData\`
+** Installationsverzeichnis für Unified Manager, zum Beispiel `\C:\Program Files\NetApp\`
+** MySQL-Datenverzeichnis, zum Beispiel `C:\ProgramData\MySQL\MySQLServerData`
+
+
+

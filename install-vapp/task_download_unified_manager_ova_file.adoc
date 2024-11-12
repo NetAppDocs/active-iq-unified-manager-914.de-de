@@ -1,0 +1,40 @@
+---
+permalink: install-vapp/task_download_unified_manager_ova_file.html 
+sidebar: sidebar 
+keywords: download, unified manager, installation, file 
+summary: Laden Sie die Installationsdatei für Unified Manager von der NetApp Support Site herunter, um Unified Manager als virtuelle Appliance zu implementieren. 
+---
+= Herunterladen der Installationsdatei für Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Laden Sie die Installationsdatei für Unified Manager von der NetApp Support Site herunter, um Unified Manager als virtuelle Appliance zu implementieren.
+
+*Was Sie brauchen*
+
+Sie sollten die Anmeldedaten für die NetApp Support-Website besitzen.
+
+Bei der Installationsdatei handelt es sich um eine `.tar` Datei, die ein Stammzertifikat, eine `README` Datei und eine `OVA` Datei mit der für eine virtuelle Appliance konfigurierten Unified Manager-Software enthält.
+
+.Schritte
+. Loggen Sie sich auf der NetApp Support Site ein und navigieren Sie zur Download-Seite für Unified Manager:
++
+https://mysupport.netapp.com/site/products/all/details/activeiq-unified-manager/downloads-tab["NetApp Support-Website"]
+
+. Wählen Sie die erforderliche Version von Unified Manager aus, und akzeptieren Sie die Endbenutzer-Lizenzvereinbarung (Endbenutzer License Agreement, EULA).
+. Laden Sie die Datei für die VMware vSphere-Installation herunter, und speichern Sie `.tar` sie in einem lokalen Verzeichnis oder Netzwerkverzeichnis, auf das Ihr vSphere Client zugreifen kann.
+. Überprüfen Sie die Prüfsumme, um sicherzustellen, dass die Software ordnungsgemäß heruntergeladen wurde.
+. Navigieren Sie zu dem Verzeichnis, in das Sie die Datei heruntergeladen `.tar` haben, und geben Sie den folgenden Befehl in das Terminalfenster ein, um das Unified Manager-Paket zu erweitern:
++
+[listing]
+----
+tar -xvzf ActiveIQUnifiedManager-<version>.tar.gz
+----
++
+Die erforderliche `OVA` Datei, ein Stammzertifikat und eine `README` Datei für Unified Manager werden in das Zielverzeichnis entpackt.
+
+. Überprüfen Sie die Integrität der `OVA` Datei, indem Sie die in der Datei angegebenen Schritte `README` ausführen.
+

@@ -1,0 +1,81 @@
+---
+permalink: reporting/task_create_report_to_view_aggregates_with_most_available_iops.html 
+sidebar: sidebar 
+keywords: create, report, view, aggregates, available, IOPS 
+summary: Dieser Bericht zeigt, welche Aggregate die meisten verfügbaren IOPS pro Aggregattyp haben, auf dem Sie neue Workloads bereitstellen können. 
+---
+= Erstellung eines Berichts, um Aggregate mit den meisten verfügbaren IOPS anzuzeigen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Dieser Bericht zeigt, welche Aggregate die meisten verfügbaren IOPS pro Aggregattyp haben, auf dem Sie neue Workloads bereitstellen können.
+
+*Was Sie brauchen*
+
+* Sie müssen über die Rolle „Anwendungsadministrator“ oder „Speicheradministrator“ verfügen.
+
+
+Gehen Sie wie folgt vor, um eine Health-Ansicht zu öffnen: Alle Volumes, laden Sie die Ansicht in Excel herunter, erstellen Sie ein verfügbares Kapazitätdiagramm, laden Sie die benutzerdefinierte Excel-Datei hoch und planen Sie den Abschlussbericht.
+
+.Schritte
+. Klicken Sie im linken Navigationsbereich auf *Storage* > *Aggregate*.
+. Wählen Sie aus dem Dropdown-Menü *Ansicht* die Option *Performance: Alle Aggregate* aus.
+. Wählen Sie *ein-/Ausblenden*, um die Spalte ein `Available IOPS`- `Threshold Policy` und auszublenden `Cluster FQDN, Inactive Data Reporting,`.
+. Ziehen Sie die Spalten und `Free Capacity` neben die `Available IOPS` Spalte `Type`.
+. Benennen und speichern Sie die benutzerdefinierte Ansicht `Available IOPS Per Aggr.`
+. Wählen Sie *Berichte* > *Excel Herunterladen*.
++
+image::../media/download_excel_menu.png[Ein UI-Screenshot, der zeigt, wie Excel aus Berichten heruntergeladen wird.]
+
++
+Je nach Browser müssen Sie möglicherweise auf *OK* klicken, um die Datei zu speichern.
+
+. Klicken Sie bei Bedarf auf *Bearbeiten aktivieren*.
+. Öffnen Sie in Excel die heruntergeladene Datei.
+. Klicken Sie auf dem Datenblatt oben links auf das kleine Dreieck, um das gesamte Blatt auszuwählen.
+. Wählen Sie auf dem Menüband *Data* aus dem die Option *Sortieren* aus `Sort & Filter area.`
+. Legen Sie die folgenden Sortierstufen fest:
++
+.. Geben Sie die Werte *Sortieren nach* als (IOPS), *Sortieren nach `Available IOPS`* als und *Reihenfolge* `Cell Values,` als an `Largest to Smallest.`
+.. Klicken Sie Auf *Stufe Hinzufügen*.
+.. Geben Sie die *Sortieren nach* als, die *Sortieren nach `Type`* als `Cell Values,` und die *Reihenfolge* als an `Z to A.`
+.. Klicken Sie Auf *Stufe Hinzufügen*.
+.. Geben Sie die Option *Sortieren nach* als *Sortieren nach* und die Option *Reihenfolge* `Cell Values,` als `Free Capacity (GB),` an `Largest to Smallest.`
+.. Klicken Sie auf *OK*.
+
+
+. Speichern und schließen Sie die Excel-Datei.
+. Wählen Sie in Unified Manager die Option *Berichte* > *Excel hochladen* aus.
++
+[NOTE]
+====
+Stellen Sie sicher, dass Sie sich in der gleichen Ansicht befinden, in der Sie die Excel-Datei heruntergeladen haben.
+
+====
+. Wählen Sie in diesem Fall die Excel-Datei aus, die Sie geändert haben `performance-aggregates-<date>.xlsx.`
+. Klicken Sie Auf *Offen*.
+. Klicken Sie Auf *Absenden*.
++
+Neben dem Menüpunkt *Berichte* > *Excel hochladen* wird ein Häkchen angezeigt.
+
++
+image::../media/upload_excel.png[Ein UI-Screenshot, der zeigt, wie Excel in Berichte hochgeladen wird.]
+
+. Klicken Sie Auf *Geplante Berichte*.
+. Klicken Sie auf *Zeitplan hinzufügen*, um der Seite Berichtspläne eine neue Zeile hinzuzufügen, damit Sie die Terminplaneigenschaften für den neuen Bericht definieren können.
+. Geben Sie einen Namen für den Berichtsplan ein, füllen Sie die anderen Berichtsfelder aus, und klicken Sie am Ende der Zeile auf das Häkchen (image:../media/blue_check.gif[""]).
++
+[NOTE]
+====
+Wählen Sie das Format *XLSX* für den Bericht aus.
+
+====
++
+Der Bericht wird sofort als Test gesendet. Danach wird der Bericht generiert und per E-Mail an die Empfänger gesendet, die unter der angegebenen Häufigkeit aufgeführt sind.
+
+
+
+Auf der Grundlage der im Bericht gezeigten Ergebnisse sollten Sie möglicherweise neue Workloads auf den Aggregaten bereitstellen, die über die höchsten verfügbaren IOPS verfügen.
